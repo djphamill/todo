@@ -6,5 +6,6 @@ echo "to-do:"
 LINE_NUMBER=0
 
 while read p; do
-  echo "$p"
+	((LINE_NUMBER++))
+	echo "$LINE_NUMBER: $p"
 done <"$TODO_FILEPATH"
