@@ -6,7 +6,7 @@ This setup is written for MacOS. Please adjust accordingly for your system.
 
 Add your todo.md filepath to the script
 ```bash
-sed -i "" "s/filepath/<your_todo_filepath>"
+sed -i "" "s/$YOUR_FILEPATH/<your_todo_filepath>"
 ```
 
 Change file permissions on the `todo.sh` file:
