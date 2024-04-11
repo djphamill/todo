@@ -16,4 +16,7 @@ case "$1" in
 
 	"delete")
 		echo "delete an item";;
+
+	"")
+		echo "add, list and delete are the only flags that can be used with todo."
 esac
