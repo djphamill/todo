@@ -4,7 +4,7 @@ TODO_FILEPATH=$YOUR_FILEPATH
 
 case "$1" in
 	"add")
-		echo "add an item";;
+		echo "$2" >> "$TODO_FILEPATH";;
 
 	"list")
 		echo "to-do:"
