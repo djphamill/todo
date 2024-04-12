@@ -4,6 +4,16 @@ TODO_FILEPATH=$YOUR_FILEPATH
 
 case "$1" in
 	"add")
+		if [ $# -gt 2 ]
+		then
+			echo "Ensure you wrap your toodo item in quotes."
+			exit
+		fi
+		if [ $# -eq  1 ]
+		then
+			echo "Ensure you write a todo item to add."
+			exit
+		fi
 		echo "$2" >> "$TODO_FILEPATH";;
 
 	"list")
