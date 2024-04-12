@@ -22,11 +22,22 @@ case "$1" in
 		while read p; do
 			((LINE_NUMBER++))
 			echo "$LINE_NUMBER: $p"
-		done <"$TODO_FILEPATH";;
+		done < "$TODO_FILEPATH";;
 
 	"delete")
-		echo "delete an item";;
+		TMP_FILEPATH="${TODO_FILEPATH}_tmp"
+		touch $TMP_FILEPATH
 
+		LINE_NUMBER=0
+		while read p; do
+			((LINE_NUMBER++))
+			if [ $LINE_NUMBER -ne $2 ]
+			then
+				echo "$p" >> "$TMP_FILEPATH"
+			fi
+		done < "$TODO_FILEPATH"
+		cat "$TMP_FILEPATH" > "$TODO_FILEPATH"
+		rm "$TMP_FILEPATH";;
 	"")
 		echo "add, list and delete are the only flags that can be used with todo."
 esac
