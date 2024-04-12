@@ -25,6 +25,12 @@ case "$1" in
 		done < "$TODO_FILEPATH";;
 
 	"delete")
+		if [[ $# -ne 2 || ! "$2" =~ ^[0-9]+$ ]]
+		then
+			echo "When attempting to delete a line, only provide its line number."
+			exit
+		fi
+
 		TMP_FILEPATH="${TODO_FILEPATH}_tmp"
 		touch $TMP_FILEPATH
 
